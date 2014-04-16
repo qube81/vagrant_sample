@@ -12,13 +12,15 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.define "web" do |web|
     web.vm.network "forwarded_port", guest: 80, host: 8080
+    web.vm.network "forwarded_port", guest: 4567, host: 4567
     web.vm.network :private_network, ip:"192.168.33.10"
     web.vm.provision "shell", path: "provision.sh"
   end
-  config.vm.define "db" do |db|
-  	db.vm.provision "shell", path: "db_provision.sh"
-    db.vm.network :private_network, ip:"192.168.33.11"
-  end
+
+  #config.vm.define "db" do |db|
+  #	db.vm.provision "shell", path: "db_provision.sh"
+  #  db.vm.network :private_network, ip:"192.168.33.11"
+  #end
     
 
   # The url from where the 'config.vm.box' box will be fetched if it
