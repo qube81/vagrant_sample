@@ -1,4 +1,5 @@
-php5.3
+apache 2.4
+php5.5
 ruby1.9.3
 middleman
 
